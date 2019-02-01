@@ -39,12 +39,12 @@ public class ActivitiController {
     }
 
     @GetMapping("/complete-task-A/{processInstanceId}")
-    public void completeTaskA(@PathVariable String processInstanceId) {
+    public String completeTaskA(@PathVariable String processInstanceId) {
         Task task = taskService.createTaskQuery()
           .processInstanceId(processInstanceId)
           .singleResult();
         taskService.complete(task.getId());
-        log.info("Task completed");
+        return "Task completed" + task;
     }
 
 }

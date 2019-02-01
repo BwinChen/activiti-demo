@@ -21,11 +21,9 @@ import static org.junit.Assert.assertEquals;
 
 @Slf4j
 @RunWith(SpringRunner.class)
-//@WebAppConfiguration
 @SpringBootTest
 public class ActivitiControllerIntegrationTest {
 
-//    private static final Logger log = LoggerFactory.getLogger(ActivitiControllerIntegrationTest.class);
     private MockMvc mockMvc;
     @Autowired
     private WebApplicationContext wac;
@@ -111,4 +109,5 @@ public class ActivitiControllerIntegrationTest {
         List<ProcessInstance> list = runtimeService.createProcessInstanceQuery().list();
         assertEquals(0, list.size());
     }
+
 }

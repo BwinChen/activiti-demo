@@ -1,0 +1,15 @@
+GET http://localhost:8080/start-process
+
+<> 2019-02-01T031418.200.txt
+
+###
+GET http://localhost:8080/get-tasks/5
+
+<> 2019-02-01T030635.200.json
+
+###
+GET http://localhost:8080/complete-task-A/5
+
+<> 2019-02-01T025957.500.json
+
+###
