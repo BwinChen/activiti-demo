@@ -17,12 +17,12 @@ public class ActivitiSpringSecurityIntegrationTest {
 
     @Test
     public void whenUserExists_thenOk() {
-        identityService.setUserPicture("spring_user", null);
+        identityService.setUserPicture("tom", null);
     }
 
     @Test(expected = UsernameNotFoundException.class)
     public void whenUserNonExistent_thenSpringException() {
-        identityService.setUserPicture("user3", null);
+        identityService.setUserPicture("jerry", null);
     }
 
 }

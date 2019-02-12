@@ -33,4 +33,17 @@
             </bpmndi:BPMNEdge>
         </bpmndi:BPMNPlane>
     </bpmndi:BPMNDiagram>
+    <bpmndi:BPMNDiagram>
+        <bpmndi:BPMNPlane>
+            <bpmndi:BPMNShape bpmnElement="A">
+                <omgdc:Bounds height="48.0" width="120.0" x="-60.0" y="-24.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="endEvent">
+                <omgdc:Bounds height="48.0" width="48.0" x="-24.0" y="-24.0"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="startEvent">
+                <omgdc:Bounds height="48.0" width="48.0" x="-24.0" y="-24.0"/>
+            </bpmndi:BPMNShape>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
 </definitions>

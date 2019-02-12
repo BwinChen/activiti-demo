@@ -16,11 +16,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**")
-            .authorizeRequests()
-                .antMatchers("/protected-process*").authenticated()
-                .anyRequest().permitAll()
-            .and().formLogin().loginPage("/login").defaultSuccessUrl("/homepage").failureUrl("/login?error=true")
+            .formLogin().loginPage("/login").defaultSuccessUrl("/homepage").failureUrl("/login?error=true")
             .and().logout().logoutSuccessUrl("/login")
+            .and().authorizeRequests()
+                .antMatchers("/activiti/protected-process*").authenticated()
+                .anyRequest().permitAll()
             .and().csrf().disable();
     }
 

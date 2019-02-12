@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 @AllArgsConstructor
 @Configuration
-public class ActivitiSecurityConfig {
+public class ActivitiConfig {
 
     private final SpringProcessEngineConfiguration processEngineConfiguration;
     private final MyUserDetailsService userDetailsService;
