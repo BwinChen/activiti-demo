@@ -7,20 +7,19 @@ import org.activiti.spring.SpringProcessEngineConfiguration;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 @AllArgsConstructor
 @Configuration
 public class ActivitiSecurityConfig {
 
     private final SpringProcessEngineConfiguration processEngineConfiguration;
-    private final JdbcUserDetailsManager userManager;
+    private final MyUserDetailsService userDetailsService;
 
     @Bean
     InitializingBean processEngineInitializer() {
         return () -> {
-            processEngineConfiguration.setUserEntityManager(new SpringSecurityUserManager(processEngineConfiguration, new MybatisUserDataManager(processEngineConfiguration), userManager));
-            processEngineConfiguration.setGroupEntityManager(new SpringSecurityGroupManager(processEngineConfiguration, new MybatisGroupDataManager(processEngineConfiguration)));
+            processEngineConfiguration.setUserEntityManager(new MyUserEntityManager(processEngineConfiguration, new MybatisUserDataManager(processEngineConfiguration), userDetailsService));
+            processEngineConfiguration.setGroupEntityManager(new MyGroupEntityManager(processEngineConfiguration, new MybatisGroupDataManager(processEngineConfiguration), userDetailsService));
         };
     }
 

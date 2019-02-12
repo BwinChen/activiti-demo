@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class TaskRepresentation {
+public class Task {
 
     private String id;
     private String name;

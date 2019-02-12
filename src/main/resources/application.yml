@@ -16,3 +16,9 @@ mybatis-plus:
     db-config:
       id-type: ID_WORKER_STR
       column-like: true
+
+logging:
+  file: ./logs/${spring.application.name}.log
+  level:
+    com.bwin.activitidemo:
+      mapper: DEBUG

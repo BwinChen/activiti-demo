@@ -1,6 +1,6 @@
 package com.bwin.activitidemo.controller;
 
-import com.bwin.activitidemo.entity.TaskRepresentation;
+import com.bwin.activitidemo.entity.Task;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.activiti.engine.RuntimeService;
@@ -82,7 +82,7 @@ public class ActivitiControllerIntegrationTest {
           .getContentAsString();
 
         ObjectMapper mapper = new ObjectMapper();
-        List<TaskRepresentation> tasks = Arrays.asList(mapper.readValue(responseBody, TaskRepresentation[].class));
+        List<Task> tasks = Arrays.asList(mapper.readValue(responseBody, Task[].class));
         assertEquals(1, tasks.size());
         assertEquals("A", tasks.get(0).getName());
 

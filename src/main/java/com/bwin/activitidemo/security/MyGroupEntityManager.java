@@ -1,8 +1,5 @@
 package com.bwin.activitidemo.security;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 import org.activiti.engine.identity.Group;
 import org.activiti.engine.identity.GroupQuery;
 import org.activiti.engine.impl.GroupQueryImpl;
@@ -12,19 +9,21 @@ import org.activiti.engine.impl.persistence.entity.GroupEntityImpl;
 import org.activiti.engine.impl.persistence.entity.GroupEntityManagerImpl;
 import org.activiti.engine.impl.persistence.entity.data.GroupDataManager;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
-public class SpringSecurityGroupManager extends GroupEntityManagerImpl {
+public class MyGroupEntityManager extends GroupEntityManagerImpl {
 
-    private JdbcUserDetailsManager userManager;
+    private MyUserDetailsService userDetailsService;
 
-    public SpringSecurityGroupManager(ProcessEngineConfigurationImpl processEngineConfiguration, GroupDataManager groupDataManager) {
+    public MyGroupEntityManager(ProcessEngineConfigurationImpl processEngineConfiguration, GroupDataManager groupDataManager, MyUserDetailsService userDetailsService) {
         super(processEngineConfiguration, groupDataManager);
+        this.userDetailsService = userDetailsService;
     }
 
     @Override
     public List<Group> findGroupByQueryCriteria(GroupQueryImpl query, Page page) {
-
         if (query.getUserId() != null) {
             return findGroupsByUser(query.getUserId());
         }
@@ -38,7 +37,7 @@ public class SpringSecurityGroupManager extends GroupEntityManagerImpl {
 
     @Override
     public List<Group> findGroupsByUser(String userId) {
-        UserDetails userDetails = userManager.loadUserByUsername(userId);
+        UserDetails userDetails = userDetailsService.loadUserByUsername(userId);
         System.out.println("group manager");
         if (userDetails != null) {
             List<Group> groups = userDetails.getAuthorities()
@@ -55,19 +54,13 @@ public class SpringSecurityGroupManager extends GroupEntityManagerImpl {
         return null;
     }
 
-    public void setUserManager(JdbcUserDetailsManager userManager) {
-        this.userManager = userManager;
-    }
-
     public Group createNewGroup(String groupId) {
         throw new UnsupportedOperationException("This operation is not supported!");
-
     }
 
     @Override
     public void delete(String groupId) {
         throw new UnsupportedOperationException("This operation is not supported!");
-
     }
 
     public GroupQuery createNewGroupQuery() {
