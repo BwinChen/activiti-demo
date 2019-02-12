@@ -1,5 +1,6 @@
-package com.bwin.activitidemo.security;
+package com.bwin.activitidemo.activiti;
 
+import com.bwin.activitidemo.security.MyUserDetailsService;
 import org.activiti.engine.identity.Group;
 import org.activiti.engine.identity.GroupQuery;
 import org.activiti.engine.impl.GroupQueryImpl;

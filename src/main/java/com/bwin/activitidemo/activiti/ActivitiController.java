@@ -1,4 +1,4 @@
-package com.bwin.activitidemo.controller;
+package com.bwin.activitidemo.activiti;
 
 import com.bwin.activitidemo.entity.Task;
 import lombok.AllArgsConstructor;

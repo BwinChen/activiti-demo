@@ -1,5 +1,6 @@
-package com.bwin.activitidemo.security;
+package com.bwin.activitidemo.activiti;
 
+import com.bwin.activitidemo.security.MyUserDetailsService;
 import lombok.AllArgsConstructor;
 import org.activiti.engine.impl.persistence.entity.data.impl.MybatisGroupDataManager;
 import org.activiti.engine.impl.persistence.entity.data.impl.MybatisUserDataManager;
