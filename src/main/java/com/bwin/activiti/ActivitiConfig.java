@@ -9,6 +9,9 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * @see <a href="https://www.baeldung.com/activiti-spring-security">Activiti with Spring Security</a>
+ */
 @AllArgsConstructor
 @Configuration
 public class ActivitiConfig {
