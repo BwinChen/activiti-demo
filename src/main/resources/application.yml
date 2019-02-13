@@ -11,7 +11,7 @@ spring:
 
 mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
-  type-aliases-package: com.bwin.activitidemo.entity
+  type-aliases-package: com.bwin.entity
   global-config:
     db-config:
       id-type: ID_WORKER_STR
@@ -20,5 +20,5 @@ mybatis-plus:
 logging:
   file: ./logs/${spring.application.name}.log
   level:
-    com.bwin.activitidemo:
+    com.bwin:
       mapper: DEBUG

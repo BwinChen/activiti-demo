@@ -1,15 +1,32 @@
-GET http://localhost:8080/start-process
+GET http://localhost:8080/activiti/start-process
 
 <> 2019-02-01T031418.200.txt
 
 ###
-GET http://localhost:8080/get-tasks/5
+GET http://localhost:8080/activiti/get-tasks/5
 
 <> 2019-02-01T030635.200.json
 
 ###
-GET http://localhost:8080/complete-task-A/5
+GET http://localhost:8080/activiti/complete-task-A/5
 
 <> 2019-02-01T025957.500.json
+
+###
+POST http://localhost:8080/role
+content-type: application/x-www-form-urlencoded;charset=UTF-8
+
+#enName=user&cnName=普通用户
+enName=admin&cnName=管理员
+
+<> 2019-02-12T014128.200.json
+
+###
+POST http://localhost:8080/user
+content-type: application/x-www-form-urlencoded;charset=UTF-8
+
+username=tom&password=tom
+
+<> 2019-02-12T014343.200.json
 
 ###
