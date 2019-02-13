@@ -1,4 +1,4 @@
-package com.bwin.activitidemo;
+package com.bwin;
 
 import org.activiti.spring.boot.SecurityAutoConfiguration;
 import org.springframework.boot.SpringApplication;

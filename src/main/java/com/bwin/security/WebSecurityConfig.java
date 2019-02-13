@@ -1,4 +1,4 @@
-package com.bwin.activitidemo.security;
+package com.bwin.security;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,6 @@
-package com.bwin.activitidemo.activiti;
+package com.bwin.controller;
 
-import com.bwin.activitidemo.entity.Task;
+import com.bwin.entity.Task;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.activiti.engine.IdentityService;

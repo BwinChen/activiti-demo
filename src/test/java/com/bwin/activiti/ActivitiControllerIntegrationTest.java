@@ -1,6 +1,6 @@
-package com.bwin.activitidemo.controller;
+package com.bwin.activiti;
 
-import com.bwin.activitidemo.entity.Task;
+import com.bwin.entity.Task;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.activiti.engine.RuntimeService;

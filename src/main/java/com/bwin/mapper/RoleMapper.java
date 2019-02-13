@@ -1,8 +1,8 @@
-package com.bwin.activitidemo.mapper;
+package com.bwin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.bwin.activitidemo.entity.Role;
-import com.bwin.activitidemo.entity.User;
+import com.bwin.entity.Role;
+import com.bwin.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

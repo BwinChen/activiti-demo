@@ -1,7 +1,7 @@
-package com.bwin.activitidemo.controller;
+package com.bwin.controller;
 
-import com.bwin.activitidemo.entity.Role;
-import com.bwin.activitidemo.mapper.RoleMapper;
+import com.bwin.entity.Role;
+import com.bwin.mapper.RoleMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

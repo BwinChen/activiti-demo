@@ -1,4 +1,4 @@
-//package com.bwin.activitidemo.controller;
+//package com.bwin.activiti;
 //
 //
 //import org.activiti.engine.ActivitiException;

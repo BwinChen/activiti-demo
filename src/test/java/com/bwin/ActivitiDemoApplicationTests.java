@@ -1,4 +1,4 @@
-package com.bwin.activitidemo;
+package com.bwin;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

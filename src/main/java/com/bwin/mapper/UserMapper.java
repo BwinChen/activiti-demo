@@ -1,7 +1,7 @@
-package com.bwin.activitidemo.mapper;
+package com.bwin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.bwin.activitidemo.entity.User;
+import com.bwin.entity.User;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;
 
@@ -16,7 +16,7 @@ public interface UserMapper extends BaseMapper<User> {
             @Result(id=true, column="id", property="id"),
             @Result(column="id", property="roles",
                     many=@Many(
-                            select="com.bwin.activitidemo.mapper.RoleMapper.selectByUserId",
+                            select="com.bwin.mapper.RoleMapper.selectByUserId",
                             fetchType= FetchType.EAGER
                     )
             )

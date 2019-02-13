@@ -1,9 +1,9 @@
-package com.bwin.activitidemo.controller;
+package com.bwin.controller;
 
-import com.bwin.activitidemo.entity.Role;
-import com.bwin.activitidemo.entity.User;
-import com.bwin.activitidemo.mapper.RoleMapper;
-import com.bwin.activitidemo.mapper.UserMapper;
+import com.bwin.entity.Role;
+import com.bwin.entity.User;
+import com.bwin.mapper.RoleMapper;
+import com.bwin.mapper.UserMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package com.bwin.activitidemo.entity;
+package com.bwin.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
