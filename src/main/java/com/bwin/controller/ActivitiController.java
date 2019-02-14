@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @see <a href="https://www.baeldung.com/spring-activiti">Introduction to Activiti with Spring</a>
+ */
 @Slf4j
 @AllArgsConstructor
 @RequestMapping("/activiti")
