@@ -14,6 +14,9 @@ import java.util.Map;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * @see <a href="https://www.baeldung.com/java-activiti">A Guide to Activiti with Java</a>
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ProcessExecutionIntegrationTest {
@@ -43,7 +46,7 @@ public class ProcessExecutionIntegrationTest {
         Map<String, Object> variables = new HashMap<>();
         variables.put("employeeName", "Kermit");
         variables.put("numberOfDays", 4);
-        variables.put("vacationMotivation", "I'm really tired!");
+        variables.put("reason", "I'm really tired!");
 
         ProcessInstance processInstance = runtimeService
           .startProcessInstanceByKey("vacationRequest", variables);
@@ -61,7 +64,7 @@ public class ProcessExecutionIntegrationTest {
         Map<String, Object> variables = new HashMap<>();
         variables.put("employeeName", "Kermit");
         variables.put("numberOfDays", 4);
-        variables.put("vacationMotivation", "I'm really tired!");
+        variables.put("reason", "I'm really tired!");
 
         ProcessInstance processInstance = runtimeService
           .startProcessInstanceByKey("vacationRequest", variables);
