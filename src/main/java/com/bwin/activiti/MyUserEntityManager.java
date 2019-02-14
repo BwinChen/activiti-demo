@@ -12,6 +12,7 @@ import org.activiti.engine.impl.persistence.entity.UserEntity;
 import org.activiti.engine.impl.persistence.entity.UserEntityImpl;
 import org.activiti.engine.impl.persistence.entity.UserEntityManagerImpl;
 import org.activiti.engine.impl.persistence.entity.data.UserDataManager;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collections;
 import java.util.List;
@@ -104,16 +105,15 @@ public class MyUserEntityManager extends UserEntityManagerImpl {
     public List<Group> findGroupsByUser(String userId) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(userId);
         if (userDetails != null) {
-            List<Group> groups = userDetails.getAuthorities()
+            return userDetails.getAuthorities()
                 .stream()
-                .map(a -> a.getAuthority())
+                .map(GrantedAuthority::getAuthority)
                 .map(a -> {
                     Group g = new GroupEntityImpl();
                     g.setId(a);
                     return g;
                 })
                 .collect(Collectors.toList());
-            return groups;
         }
         return null;
     }
@@ -128,6 +128,10 @@ public class MyUserEntityManager extends UserEntityManagerImpl {
 
     public long findUserCountByNativeQuery(Map<String, Object> parameterMap) {
         throw new UnsupportedOperationException("This operation is not supported!");
+    }
+
+    public void setUserDetailsService(MyUserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
     }
 
 }

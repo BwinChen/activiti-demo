@@ -9,6 +9,7 @@ import org.activiti.engine.impl.cfg.ProcessEngineConfigurationImpl;
 import org.activiti.engine.impl.persistence.entity.GroupEntityImpl;
 import org.activiti.engine.impl.persistence.entity.GroupEntityManagerImpl;
 import org.activiti.engine.impl.persistence.entity.data.GroupDataManager;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.List;
 import java.util.Map;
@@ -39,18 +40,16 @@ public class MyGroupEntityManager extends GroupEntityManagerImpl {
     @Override
     public List<Group> findGroupsByUser(String userId) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(userId);
-        System.out.println("group manager");
         if (userDetails != null) {
-            List<Group> groups = userDetails.getAuthorities()
+            return userDetails.getAuthorities()
                 .stream()
-                .map(a -> a.getAuthority())
+                .map(GrantedAuthority::getAuthority)
                 .map(a -> {
                     Group g = new GroupEntityImpl();
                     g.setId(a);
                     return g;
                 })
                 .collect(Collectors.toList());
-            return groups;
         }
         return null;
     }
@@ -74,6 +73,10 @@ public class MyGroupEntityManager extends GroupEntityManagerImpl {
 
     public long findGroupCountByNativeQuery(Map<String, Object> parameterMap) {
         throw new UnsupportedOperationException("This operation is not supported!");
+    }
+
+    public void setUserDetailsService(MyUserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
     }
 
 }
